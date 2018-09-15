@@ -26,10 +26,10 @@ class Unionbank {
     axios.defaults.headers.get['x-ibm-client-secret'] = 'gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC';
     const path = '/accounts/v1/balances';
     const auth = JSON.parse(window.localStorage.getItem('accessToken'));
-    axios.defaults.headers.get['authorization'] = auth.access_token;
+    axios.defaults.headers.get['authorization'] = 'Bearer ' + auth.access_token;
     
     const response = await axios.get(path);
-    console.log(response);
+    return response.data[0].amount;
   }
 
   async login() {
