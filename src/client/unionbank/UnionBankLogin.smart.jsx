@@ -13,6 +13,7 @@ class UnionBankLogin extends React.Component {
   async execute() {
     const unionBank = new UnionBank();
     await unionBank.login('account_balances');
+    window.localStorage.setItem('action', 'balance');
   }
 
   render() {

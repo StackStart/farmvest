@@ -74,7 +74,7 @@ class Homepage extends React.Component {
               </Grid>
               <Grid item>
                 <h5>
-                  your farm investment
+                  FarmVest: Innovation for a Cause.
                 </h5>
               </Grid>
               <Grid item style={{padding: '3%'}}>
@@ -87,8 +87,7 @@ class Homepage extends React.Component {
                   </Grid>
                   <Grid item lg={3} xs={4}>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={async () => {
-                      window.localStorage.setItem('action', 'balance');
-                      await unionBank.login('account_balances');
+                      window.location.href = '/unionbank-login';
                     }} >
                       <AccountCircle />
                       Farm Owner

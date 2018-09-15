@@ -22,10 +22,14 @@ class UnionBankReceiveAuth extends React.Component {
       await unionBank.transfer(recipient, amount);
       window.localStorage.removeItem('amount');
       window.localStorage.removeItem('recipient');
+      window.localStorage.removeItem('action');
       alert('Transfer successful');
       window.location.href = '/farms';
     } else if (action === 'balance') {
+      window.localStorage.removeItem('action');
       window.location.href = '/user/balance';
+    } else if (action === 'distribute') {
+      window.location.href = '/investments/results';
     } else {
       alert('Login Success!');
     }

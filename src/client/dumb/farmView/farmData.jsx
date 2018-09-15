@@ -5,6 +5,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Typography, Grid, Button, CardActions } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Unionbank from '../../../unionbank/Unionbank';
+const unionbank = new Unionbank();
     
 const styles = (theme) => ({
   image: {
@@ -54,7 +56,13 @@ const FarmData = ({ classes }) => (
           </CardContent>
           <CardActions>
             <Button variant="contained" className={classes.button} onClick={() => {window.location.href = '/investment';}} >
-        			See Live Listing
+        			See Listing
+            </Button>
+            <Button variant="contained" className={classes.button} onClick={async () => {
+              window.localStorage.setItem('action', 'distribute');
+              await unionbank.login('transfers');
+            }} >
+        			Distribute Funds
             </Button>
           </CardActions>
         </Grid>
