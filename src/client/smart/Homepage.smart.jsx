@@ -80,19 +80,19 @@ class Homepage extends React.Component {
                 <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
                   <Grid item lg={3} xs={4}>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('investor')}>
-                      <AccountCircle fontSize={60} />
+                      <AccountCircle />
                       Investor
                     </Button>
                   </Grid>
                   <Grid item lg={3} xs={4}>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')} >
-                      <AccountCircle fontSize={60} />
+                      <AccountCircle />
                       Farm Owner
                     </Button>
                   </Grid>
                   <Grid lg={6}item>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')}>
-                      <AccountCircle fontSize={60} />
+                      <AccountCircle />
                       Cooperation Guild
                     </Button>
                   </Grid>
@@ -105,12 +105,5 @@ class Homepage extends React.Component {
     );
   }
 }
-
-
-
-Homepage.propTypes = {
-  classes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-};
 
 export default withRouter(Homepage);

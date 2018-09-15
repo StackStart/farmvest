@@ -33,9 +33,12 @@ rootStore.setStore(stores);
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#0d94a3',
-      dark: '#084c61',
-      main: '#050f42',
+      // light: '#0d94a3',
+      // dark: '#084c61',
+      // main: '#050f42',
+      main: '#B44010',
+      dark: '#E55300',
+      light: '#FF6900',
       contrastText: '#ffd0aa',
     },
     secondary: {
@@ -44,6 +47,7 @@ const theme = createMuiTheme({
       dark: '#b61827',
       contrastText: '#000000',
     },
+    text: '#0d1744'
   },
 });
 
@@ -51,18 +55,15 @@ const Index = () => (
   <MuiThemeProvider theme={theme}>
     <Router>
       <div>
-        <Grid container style={{flexGrow: 1}}>
+        <Grid container style={{flexGrow: 1, color: '#0d1744' }}>
           <Grid item xs={12}>
             <AppBar />  
           </Grid>
           <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
-<<<<<<< HEAD
             <Route exact path="/farm" component={FarmView} />
-=======
             <Route exact path="/login" component={Login} />
             <Route exact path="/user:id" component={UserProfile} />
->>>>>>> 559d9099c8438e05a1de1201b573b49f02c3975e
           </Grid>
         </Grid>
       </div>

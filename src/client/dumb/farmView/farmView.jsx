@@ -10,7 +10,7 @@ import InvestorTable from './investorList';
 const styles = {
   root: {
     flexGrow: 1,
-    padding: '10px'
+    padding: '10px',
   },
 };
 
