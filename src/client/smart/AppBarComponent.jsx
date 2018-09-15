@@ -33,12 +33,12 @@ class AppBar extends React.Component {
   render() {
     const { auth, anchorEl, left } = this.state;
     const open = Boolean(anchorEl);
-    
+
     return (
       <AppBarView
-        handleClose={this.handleClose} 
+        handleClose={this.handleClose}
         handleMenu={this.handleMenu}
-        auth={auth} 
+        auth={auth}
         open={open}
         anchorEl={anchorEl}
         left={left}
