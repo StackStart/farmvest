@@ -6,18 +6,31 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { Provider } from 'mobx-react';
 
+import { RootStore, UIStore } from './stores';
 import Homepage from './smart/Homepage.smart';
 import AppBar from './smart/AppBarComponent';
 
+
 // import './client';
+
+const rootStore = new RootStore();
+const uiStore = new UIStore(rootStore);
+
+const stores = {
+  rootStore,
+  uiStore
+};
+
+rootStore.setStore(stores);
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '	#0d94a3',
+      light: '  #0d94a3',
       main: '#084c61',
-      dark: '	#050f42',
+      dark: ' #050f42',
       contrastText: '#ffd0aa',
     },
     secondary: {
@@ -47,4 +60,7 @@ const Index = () => (
 );
 
 ReactDOM.render(
-  <Index />, document.getElementById('app'));
+  <Provider {...stores}>
+    <Index />
+  </Provider>,
+  document.getElementById('app'));
