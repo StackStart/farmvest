@@ -16,6 +16,7 @@ import UserProfile from './smart/Userpage.smart';
 
 
 import AppBar from './smart/AppBarComponent';
+import FarmView from './smart/FarmView';
 
 
 // import './client';
@@ -33,9 +34,9 @@ rootStore.setStore(stores);
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '  #0d94a3',
-      main: '#084c61',
-      dark: ' #050f42',
+      light: '#0d94a3',
+      dark: '#084c61',
+      main: '#050f42',
       contrastText: '#ffd0aa',
     },
     secondary: {
@@ -57,6 +58,7 @@ const Index = () => (
           </Grid>
           <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/farm" component={FarmView} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/user:id" component={UserProfile} />
             <Route exact path="/farms" component={FarmList} />
