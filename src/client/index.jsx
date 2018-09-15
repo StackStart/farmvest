@@ -13,6 +13,7 @@ import Homepage from './smart/Homepage.smart';
 import Login from './smart/LoginPage.smart';
 import FarmList from './smart/FarmList';
 import UserProfile from './smart/Userpage.smart';
+import InvestmentsBreakdown from './smart/InvestmentsBreakdown';
 
 
 import AppBar from './smart/AppBarComponent';
@@ -75,6 +76,7 @@ const Index = () => (
             <Route exact path="/login" component={Login} />
             <Route exact path="/user" component={UserProfile} />
             <Route exact path="/farms" component={FarmList} />
+            <Route exact path="/investments/results" component={InvestmentsBreakdown} />
             <Route exact path="/cooperative/farms" component={FarmListCooperative} />
             <Route exact path="/utilities/seeder" component={SeederComponent} />
             <Route exact path="/investment" component={InvestmentView} />

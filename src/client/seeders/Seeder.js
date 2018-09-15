@@ -50,6 +50,7 @@ class Seeder {
       duration: '105-120 days',
       startDate: '2018-09-25T18:01:27.486Z',
       endDate: '2018-01-20T19:01:27.486Z',
+      investors: [],
     };
     const response = await client.service('api/cycle').create(cycleData);
     console.log(response);
