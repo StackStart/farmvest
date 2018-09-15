@@ -61,7 +61,7 @@ const Index = () => (
       <div>
         <Grid container style={{flexGrow: 1, color: '#0d1744' }}>
           <Grid item xs={12}>
-            <AppBar />  
+            <AppBar />
           </Grid>
           <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
