@@ -9,6 +9,9 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Homepage from './smart/Homepage.smart';
 import AppBar from './smart/AppBarComponent';
+import UnionBankLogin from './unionbank/UnionBankLogin.smart';
+import UnionBankReceiveAuth from './unionbank/UnionBankReceiveAuth.smart';
+import UnionBankPlayground from './unionbank/UnionBankPlayground.smart';
 
 // import './client';
 
@@ -39,6 +42,9 @@ const Index = () => (
           </Grid>
           <Grid item xs={6}>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/unionbank-login" component={UnionBankLogin} />
+            <Route exact path="/unionbank-receive-auth" component={UnionBankReceiveAuth} />
+            <Route exact path="/unionbank-playground" component={UnionBankPlayground} />
           </Grid>
         </Grid>
       </div>

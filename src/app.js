@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('babel-core/register');
 require('babel-polyfill');
 
@@ -19,6 +20,9 @@ const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
+const axios = require('axios');
+const { exec } = require('child_process');
+
 const app = express(feathers());
 
 // Load app configuration
@@ -28,11 +32,55 @@ app.use(helmet());
 app.use(cors());
 app.use(compress());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 
 // Host the public folder
 app.use('/', express.static(path.resolve('public')));
+
+app.get('/unionbank', (req, res) => {
+  console.log(req);
+  res.send('OK');
+});
+
+app.get('/unionbank/login', async (req, res) => {
+  console.log('Retrieving unionbank login URI');
+  axios.defaults.baseURL = 'https://api-uat.unionbankph.com/partners/sb';
+  axios.defaults.headers.post['Content-Type'] = 'text/html';
+  axios.defaults.headers.post['accept'] = 'application/x-www-form-urlencoded';
+  axios.defaults.headers.post['x-ibm-client-id'] = 'a2bed6de-fa69-417a-bd39-edde532ff727';
+  axios.defaults.headers.post['x-ibm-client-secret'] = 'gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC';
+  const path = '/convergent/v1/oauth2/authorize?client_id=a2bed6de-fa69-417a-bd39-edde532ff727&response_type=code&scope=account_balances&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Funionbank-receive-auth';
+  const response = await axios.get(path);
+  const redirectURI = response.request.res.req.agent.protocol + '//' + response.request.res.connection._host + response.request.path;
+  res.json({
+    redirectTo: redirectURI
+  });
+});
+
+app.get('/unionbank/authorize/:code', (req, res) => {
+  /**
+    * Resorted to using cURL because request() and axios() failed to work.
+    * Getting { "error":"invalid_grant" } consistently. #hack
+   */
+  const code = req.params.code;
+
+  const command = `curl https://api-uat.unionbankph.com/partners/sb/convergent/v1/oauth2/token -H "accept: application/json" -H "content-type: application/x-www-form-urlencoded" -H "x-ibm-client-id: a2bed6de-fa69-417a-bd39-edde532ff727" -H "x-ibm-client-secret: gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC" -X POST -d "grant_type=authorization_code&client_id=a2bed6de-fa69-417a-bd39-edde532ff727&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Funionbank-receive-auth&code=${code}"`;
+  
+  exec(command, (err, stdout) => {
+    if (err) {
+      console.log(err);
+      res.send();
+      return;
+    }
+
+    console.log(`${stdout}`);
+    res.json(stdout);
+  });
+});
+
 app.use('*', express.static(path.resolve('public')));
 
 // Set up Plugins and providers
@@ -48,7 +96,9 @@ app.configure(channels);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
-app.use(express.errorHandler({ logger }));
+app.use(express.errorHandler({
+  logger
+}));
 
 app.hooks(appHooks);
 
