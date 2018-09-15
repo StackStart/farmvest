@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-// import {CardActionArea} from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -14,7 +13,7 @@ const styles = {
   card: {
     margin: '0 auto',
     // maxWidth: 345,
-    width: '100%',
+    width: '60%',
   },
   media: {
     // ⚠️ object-fit is not supported by IE11.
@@ -24,9 +23,9 @@ const styles = {
   },
   div: {
     position: 'absolute',
-    top: '45%',
-    zIndex: 100000,
-    width: '100%',
+    top: '35%',
+    zIndex: 10,
+    width: '60%',
     height: '15%',
     backgroundColor: '#E55300',
     opacity: 0.7,
@@ -47,10 +46,9 @@ const styles = {
   },
 };
 
-const CheckFarm = ({ classes }) => (
+const CheckFarm = ({ classes, handleClickOpen }) => (
   <React.Fragment>
     <Card className={classes.card}>
-      {/* <CardActionArea> */}
       <CardMedia
         component="img"
         className={classes.media}
@@ -59,41 +57,40 @@ const CheckFarm = ({ classes }) => (
       />
       <div className={classes.div}>
         <Typography variant="headline" component="h1" className={classes.title}>
-            Farm Name
+            Farm Vest
         </Typography>
         <Typography className={classes.pos}>
-            Farm type
+            Rice
         </Typography>
       </div>
       <CardContent>
         <Grid container spacing={16}>
           <Grid item xs={6}>
             <div className={classes.root}>
-              <h3>Duration:</h3>
+              <h3>Fund:</h3>
               <br/>
               <LinearProgress variant="determinate" value={50} />
             </div>
             <Typography component="p">
-            Duration: 105-120 days
+              <b>₱60,000 of ₱120,000 GOAL</b>
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <br/>
             <Typography component="p">
-                60% funded from 5 investor
+                50% funded from 7 investors
               <br/>
-                Expected growth: 47%
+              <h3>Expected growth: 47%</h3>
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
-      {/* </CardActionArea> */}
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={handleClickOpen}>
           Invest
         </Button>
-        <Button size="small" color="primary">
-          View Other Farm
+        <Button size="small" color="primary" onClick={() => {window.location.href = '/farms';}}>
+          View Other Farms
         </Button>
       </CardActions>
     </Card>

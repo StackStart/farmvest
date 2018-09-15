@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-class FarmList extends Component {
+class FarmListCooperative extends Component {
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class FarmList extends Component {
   }
 
   handleFarm() {
-    window.location.href = '/investment';
+    window.location.href = '/farm';
   }
 
   render() {
@@ -49,4 +49,4 @@ class FarmList extends Component {
   }
 }
 
-export default FarmList;
+export default FarmListCooperative;

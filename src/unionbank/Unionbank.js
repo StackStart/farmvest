@@ -32,9 +32,22 @@ class Unionbank {
     return response.data[0].amount;
   }
 
-  async login() {
+  async transfer(recipient, amount) {
     console.log('Logging in...');
-    const response = await axios.get('/unionbank/login');
+    axios.defaults.baseURL = '/';
+    const token = JSON.parse(window.localStorage.accessToken);
+    const response = await axios.get(`/unionbank/transfer/${recipient}/${amount}/${token.access_token}`);
+    console.log(response.data);
+  }
+
+  async login(scope) {
+    console.log('Logging in...');
+    axios.defaults.baseURL = '/';
+    axios.defaults.headers.get['Content-Type'] = 'application/json';
+    axios.defaults.headers.get['accept'] = 'application/json';
+    axios.defaults.headers.get['x-ibm-client-id'] = 'a2bed6de-fa69-417a-bd39-edde532ff727';
+    axios.defaults.headers.get['x-ibm-client-secret'] = 'gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC';
+    const response = await axios.get('/unionbank/login/' + scope);
     console.log(response.data);
     window.location.href = response.data.redirectTo;
   }
@@ -49,6 +62,7 @@ class Unionbank {
   async requestAuthorize() {
     console.log('Requesting token...');
     const response = await axios.get('/unionbank/authorize/' + window.localStorage.getItem('accessToken'));
+    console.log(response.data);
     window.localStorage.setItem('accessToken', response.data);
     console.log(JSON.parse(window.localStorage.getItem('accessToken')));
   }

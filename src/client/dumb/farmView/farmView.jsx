@@ -14,8 +14,12 @@ const styles = {
   },
 };
 
-const FundsView = ({ classes, rows }) => (
+const FundsView = ({ classes, rows, expenseRows }) => (
   <React.Fragment>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <Grid container className={classes.root} spacing={8}>
       <Grid item xs={6}>
         <FarmDetails />
@@ -27,7 +31,7 @@ const FundsView = ({ classes, rows }) => (
         <Funds />
       </Grid>
       <Grid item xs={6}>
-        <ExpenseTable rows={rows}/>
+        <ExpenseTable rows={expenseRows}/>
       </Grid>
     </Grid>
   </React.Fragment>

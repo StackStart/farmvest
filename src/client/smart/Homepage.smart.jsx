@@ -79,7 +79,7 @@ class Homepage extends React.Component {
               <Grid item style={{padding: '3%'}}>
                 <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
                   <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('investor')}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
                       <AccountCircle />
                       Investor
                     </Button>
@@ -91,7 +91,7 @@ class Homepage extends React.Component {
                     </Button>
                   </Grid>
                   <Grid lg={6}item>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
                       <AccountCircle />
                       Cooperation Guild
                     </Button>

@@ -12,7 +12,7 @@ class UnionBankLogin extends React.Component {
 
   execute() {
     const unionBank = new UnionBank();
-    unionBank.login();
+    unionBank.login('account_balances');
   }
 
   render() {
