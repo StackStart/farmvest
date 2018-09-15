@@ -46,6 +46,8 @@ const InvestmentData = ({classes}) => (
             Address: xxx xx.,xxx,xxx
               <br/>
             xx hectares
+              <br/>
+            Est nulla dolore dolore nulla sunt aliquip non laboris. Consequat tempor cillum dolor cupidatat officia.
             </Typography>
           </div>
         </Grid>
@@ -66,6 +68,8 @@ const InvestmentData = ({classes}) => (
             Address: xxx xx.,xxx,xxx
               <br/>
             xx hectares
+              <br/>
+            Veniam quis ut consequat qui cupidatat Lorem sit. Dolore enim anim nisi dolore. Voluptate sunt cillum id quis dolor qui tempor ad voluptate fugiat excepteur veniam. Laboris dolor sint tempor do et.
             </Typography>
           </div>
         </Grid>

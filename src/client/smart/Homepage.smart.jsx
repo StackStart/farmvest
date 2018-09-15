@@ -1,10 +1,9 @@
 import React from 'react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountBalanceWallet from '@material-ui/icons/AccountBalanceWallet';
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import Unionbank from '../../unionbank/Unionbank';
-const unionBank = new Unionbank();
 
 
 const styles = {
@@ -89,8 +88,8 @@ class Homepage extends React.Component {
                     <Button variant="extendedFab" style={styles.paddingData} onClick={async () => {
                       window.location.href = '/unionbank-login';
                     }} >
-                      <AccountCircle />
-                      Farm Owner
+                      <AccountBalanceWallet />
+                      Check Account
                     </Button>
                   </Grid>
                   <Grid lg={6}item>

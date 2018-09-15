@@ -149,7 +149,7 @@ class InvestmentsBreakdown extends Component {
                     <TableCell>{productionCost.toFixed(2)}</TableCell>
                     <TableCell>{yieldInKg} kg</TableCell>
                     <TableCell>{pricePerKg.toFixed(2)}</TableCell>
-                    <TableCell>{netProfit.toFixed(2)}</TableCell>
+                    <TableCell><b>{netProfit.toFixed(2)}</b></TableCell>
                     <TableCell>{netReturns.toFixed(2)}</TableCell>
                     <TableCell>{netProfitCostRatio}</TableCell>
                   </TableRow>
@@ -200,7 +200,7 @@ class InvestmentsBreakdown extends Component {
                       <TableCell>{investor.name}</TableCell>
                       <TableCell>{investor.amountInvested}</TableCell>
                       <TableCell>{investor.roi} %</TableCell>
-                      <TableCell>{investor.netProfit.toFixed(2)}</TableCell>
+                      <TableCell><b>{investor.netProfit.toFixed(2)}</b></TableCell>
                       <TableCell>{investor.gain.toFixed(2)}</TableCell>
                     </TableRow>
                   ))
