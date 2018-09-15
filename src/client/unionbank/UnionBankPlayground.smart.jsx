@@ -5,20 +5,24 @@ class UnionBankPlayground extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: 'Hello World'
+      message: 'Hello World',
+      balance: 0
     };
     this.execute();
   }
 
-  execute() {
+  async execute() {
     const unionBank = new UnionBank();
-    unionBank.getBalance();
+    const balance = await unionBank.getBalance();
+    this.setState({
+      balance
+    });
   }
 
   render() {
     return (
-      <div>
-        {this.state.message}
+      <div style={{margin: '100px'}}>
+        Balance: {this.state.balance}
       </div>
     );
   }
