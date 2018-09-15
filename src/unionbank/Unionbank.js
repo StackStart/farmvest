@@ -29,6 +29,7 @@ class Unionbank {
     axios.defaults.headers.get['authorization'] = 'Bearer ' + auth.access_token;
     
     const response = await axios.get(path);
+    console.log(response);
     return response.data[0].amount;
   }
 

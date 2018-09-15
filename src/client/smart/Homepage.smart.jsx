@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import Unionbank from '../../unionbank/Unionbank';
+const unionBank = new Unionbank();
 
 
 const styles = {
@@ -85,13 +86,16 @@ class Homepage extends React.Component {
                     </Button>
                   </Grid>
                   <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')} >
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={async () => {
+                      window.localStorage.setItem('action', 'balance');
+                      await unionBank.login('account_balances');
+                    }} >
                       <AccountCircle />
                       Farm Owner
                     </Button>
                   </Grid>
                   <Grid lg={6}item>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
                       <AccountCircle />
                       Cooperation Guild
                     </Button>
