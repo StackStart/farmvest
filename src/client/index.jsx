@@ -8,15 +8,16 @@ import { Grid } from '@material-ui/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Homepage from './smart/Homepage.smart';
+import AppBar from './smart/AppBarComponent';
 
 // import './client';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#d4996a',
-      main: '#aa6b39',
-      dark: '#552600',
+      light: '	#0d94a3',
+      main: '#084c61',
+      dark: '	#050f42',
       contrastText: '#ffd0aa',
     },
     secondary: {
@@ -34,6 +35,9 @@ const Index = () => (
       <div>
         <Grid container style={{flexGrow: 1}}>
           <Grid item xs={12}>
+            <AppBar />  
+          </Grid>
+          <Grid item xs={6}>
             <Route exact path="/" component={Homepage} />
           </Grid>
         </Grid>
