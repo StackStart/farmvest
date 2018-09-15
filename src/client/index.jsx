@@ -11,6 +11,7 @@ import { Provider } from 'mobx-react';
 import { RootStore, UIStore } from './stores';
 import Homepage from './smart/Homepage.smart';
 import Login from './smart/LoginPage.smart';
+import FarmList from './smart/FarmList';
 import UserProfile from './smart/Userpage.smart';
 
 
@@ -58,6 +59,7 @@ const Index = () => (
             <Route exact path="/" component={Homepage} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/user:id" component={UserProfile} />
+            <Route exact path="/farms" component={FarmList} />
           </Grid>
         </Grid>
       </div>
