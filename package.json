@@ -59,6 +59,8 @@
     "feathers-mongodb": "^3.2.0",
     "file-loader": "^2.0.0",
     "helmet": "^3.12.1",
+    "mobx": "^5.1.1",
+    "mobx-react": "^5.2.8",
     "mongodb": "^3.0.10",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -77,6 +79,7 @@
     "eslint": "^5.3.0",
     "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0",
+    "prop-types": "^15.6.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }
