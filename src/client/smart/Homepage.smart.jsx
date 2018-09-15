@@ -91,7 +91,7 @@ class Homepage extends React.Component {
                     </Button>
                   </Grid>
                   <Grid lg={6}item>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
                       <AccountCircle />
                       Cooperation Guild
                     </Button>
