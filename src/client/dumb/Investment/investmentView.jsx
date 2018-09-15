@@ -2,6 +2,7 @@ import React from 'react';
 
 import CheckFarm from './checkFarm';
 import InvestModal from './investModal';
+import InvestmentData from './investmentData';
 
 const investmentView = ({ open, handleClickOpen, handleClose, handleChange, amount}) => (
   <React.Fragment>
@@ -14,6 +15,9 @@ const investmentView = ({ open, handleClickOpen, handleClose, handleChange, amou
       handleChange={handleChange}
       amount={amount}
     />
+    <br/>
+    <br/>
+    <InvestmentData />
   </React.Fragment>
 );
 
