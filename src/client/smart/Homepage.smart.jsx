@@ -78,13 +78,13 @@ class Homepage extends React.Component {
               </Grid>
               <Grid item style={{padding: '3%'}}>
                 <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
-                  <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
+                  <Grid md={4} sm={12} item>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
                       <AccountCircle />
-                      Investor
+                      Cooperation Guild
                     </Button>
                   </Grid>
-                  <Grid item lg={3} xs={4}>
+                  <Grid item sm={12} md={4}>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={async () => {
                       window.location.href = '/unionbank-login';
                     }} >
@@ -92,10 +92,10 @@ class Homepage extends React.Component {
                       Check Account
                     </Button>
                   </Grid>
-                  <Grid lg={6}item>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
+                  <Grid item md={4} sm={12}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
                       <AccountCircle />
-                      Cooperation Guild
+                      Investor
                     </Button>
                   </Grid>
                 </Grid>
