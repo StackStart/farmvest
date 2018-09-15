@@ -1,9 +1,11 @@
 import React from 'react';
 
-const investmentView = () => {
-  <React.Fragment>
+import CheckFarm from './checkFarm';
 
-  </React.Fragment>;
-};
+const investmentView = () => (
+  <React.Fragment>
+    <CheckFarm />
+  </React.Fragment>
+);
 
 export default investmentView;
