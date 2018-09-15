@@ -11,15 +11,12 @@ const styles = {
   root: {
     flexGrow: 1,
     padding: '10px',
+    marginTop: '5%',
   },
 };
 
 const FundsView = ({ classes, rows, expenseRows }) => (
   <React.Fragment>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
     <Grid container className={classes.root} spacing={8}>
       <Grid item xs={6}>
         <FarmDetails />

@@ -19,7 +19,6 @@ const styles = {
     // ⚠️ object-fit is not supported by IE11.
     objectFit: 'cover',
     height: '80%',
-    position: 'relative',
   },
   div: {
     position: 'absolute',

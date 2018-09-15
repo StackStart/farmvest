@@ -13,8 +13,8 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    flexDirection: 'column'
-
+    flexDirection: 'column',
+    marginTop: '10%'
   },
   outerLayer: {
     display: 'flex'
@@ -69,7 +69,7 @@ class Homepage extends React.Component {
           <Grid item xs={12}>
             <Grid container justify='center' style={{ alignItems: 'center', justifyContent: 'center', paddingBottom: '8%' }} direction='column'>
               <Grid item>
-                <h1>Welcome to Farmvest</h1>
+                <img src='/images/logo.png' alt='Logo sample' />
               </Grid>
               <Grid item>
                 <h5>
