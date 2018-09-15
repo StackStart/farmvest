@@ -10,6 +10,10 @@ import { Provider } from 'mobx-react';
 
 import { RootStore, UIStore } from './stores';
 import Homepage from './smart/Homepage.smart';
+import Login from './smart/LoginPage.smart';
+import UserProfile from './smart/Userpage.smart';
+
+
 import AppBar from './smart/AppBarComponent';
 
 
@@ -50,8 +54,10 @@ const Index = () => (
           <Grid item xs={12}>
             <AppBar />  
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/user:id" component={UserProfile} />
           </Grid>
         </Grid>
       </div>

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
+import { Grid } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
+
 
 const styles = {
   container: {
@@ -9,12 +12,17 @@ const styles = {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#C3DBAB'
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+
+  },
+  outerLayer: {
+    display: 'flex'
   },
   innerContainer: {
     width: '60%',
-    height: '60%',
+    height: '50%',
+    top: '2%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,57 +45,72 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
+  },
+  layerTop: {
+    top: '2%',
   }
 };
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      message: 'Hello World'
-    };
+    this.state = {};
+
+    this.navigateTo = this.navigateTo.bind(this);
   }
 
-
+  navigateTo(path) {
+    this.props.history.push(`/${path}`);
+  }
   render() {
     return (
       <div style={styles.container}>
-        <div style={styles.innerContainer}>
-          <div style={styles.row}>
-            <h2>
-              Welcome to
-            </h2>
-            <h1>
-              Farmvest
-            </h1>
-          </div>
-          <div>
-            <h3>
-              Choose your account:
-            </h3>
-          </div>
-          <div style={styles.accountsDiv}>
-            <Button variant="extendedFab" aria-label="Edit" style={styles.paddingData}>
-              <AccountCircle fontSize={60} />
-              Farm Owner
-            </Button>
-            <Button variant="extendedFab" aria-label="Edit" style={styles.paddingData}>
-              <AccountCircle fontSize={60} />
-              Investor
-            </Button>
-            <Button variant="extendedFab" aria-label="Edit" style={styles.paddingData}>
-              <AccountCircle fontSize={60} />
-              Guild
-            </Button>
-          </div>
-        </div>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <Grid container justify='center' style={{ alignItems: 'center', justifyContent: 'center', paddingBottom: '8%' }} direction='column'>
+              <Grid item>
+                <h1>Welcome to Farmvest</h1>
+              </Grid>
+              <Grid item>
+                <h5>
+                  your farm investment
+                </h5>
+              </Grid>
+              <Grid item style={{padding: '3%'}}>
+                <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
+                  <Grid item lg={3} xs={4}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('investor')}>
+                      <AccountCircle fontSize={60} />
+                      Investor
+                    </Button>
+                  </Grid>
+                  <Grid item lg={3} xs={4}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')} >
+                      <AccountCircle fontSize={60} />
+                      Farm Owner
+                    </Button>
+                  </Grid>
+                  <Grid lg={6}item>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')}>
+                      <AccountCircle fontSize={60} />
+                      Cooperation Guild
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
+
+
 Homepage.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default Homepage;
+export default withRouter(Homepage);

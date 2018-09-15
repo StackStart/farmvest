@@ -4,9 +4,9 @@ class UIStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
   }
-  @observable auth = true
-  @observable anchorEl = null
-  @observable left = false,
+  // @observable auth = true
+  // @observable anchorEl = null
+  // @observable left = false
 
 
   handleMenu(event) {
