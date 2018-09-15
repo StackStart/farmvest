@@ -11,10 +11,14 @@ import { Provider } from 'mobx-react';
 import { RootStore, UIStore } from './stores';
 import Homepage from './smart/Homepage.smart';
 import Login from './smart/LoginPage.smart';
+import FarmList from './smart/FarmList';
 import UserProfile from './smart/Userpage.smart';
 
 
 import AppBar from './smart/AppBarComponent';
+import UnionBankLogin from './unionbank/UnionBankLogin.smart';
+import UnionBankReceiveAuth from './unionbank/UnionBankReceiveAuth.smart';
+import UnionBankPlayground from './unionbank/UnionBankPlayground.smart';
 import FarmView from './smart/FarmView';
 
 
@@ -61,9 +65,13 @@ const Index = () => (
           </Grid>
           <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/unionbank-login" component={UnionBankLogin} />
+            <Route exact path="/unionbank-receive-auth" component={UnionBankReceiveAuth} />
+            <Route exact path="/unionbank-playground" component={UnionBankPlayground} />
             <Route exact path="/farm" component={FarmView} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/user:id" component={UserProfile} />
+            <Route exact path="/farms" component={FarmList} />
           </Grid>
         </Grid>
       </div>
