@@ -15,9 +15,10 @@ class InvestmentViewComponent extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(prop) {
-      return (event) => {
-    this.setState({ [prop]: event.target.value });
+  handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
   }
 
   handleClickOpen() {
