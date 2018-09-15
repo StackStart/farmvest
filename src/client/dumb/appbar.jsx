@@ -47,7 +47,7 @@ const MenuAppBar = ({ classes, handleClose, handleMenu, auth, open, anchorEl, le
         </div>
       </div>
     </SwipeableDrawer>
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={() => toggleDrawer('left')}>
           <MenuIcon />
