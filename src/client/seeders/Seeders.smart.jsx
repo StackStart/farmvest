@@ -30,7 +30,7 @@ class SeederComponent extends React.Component {
       <div>
         <Button onClick={this.seedOwner}>Seed Owner</Button><br />
         <Button onClick={this.seedFarm}>Seed Farm</Button><br />
-        <Button onClick={this.seedAll}>Seed All</Button><br />
+        <Button onClick={this.seedOwner}>Seed All</Button><br />
       </div>
     );
   }

@@ -17,7 +17,7 @@ const styles = theme => ({
   }
 });
 
-const InvestModal = ({ classes, handleClose, open, amount, handleChange}) => (
+const InvestModal = ({ classes, handleClose, open, amount, handleChange, handleInvest}) => (
   <div>
     <Dialog
       open={open}
@@ -63,8 +63,8 @@ const InvestModal = ({ classes, handleClose, open, amount, handleChange}) => (
           <InputLabel htmlFor="adornment-amount">Amount</InputLabel>
           <Input
             id="adornment-amount"
-            value={amount}
-            onChange={() => handleChange('amount')}
+            name="amount"
+            onChange={handleChange}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
         </FormControl>
@@ -78,7 +78,7 @@ const InvestModal = ({ classes, handleClose, open, amount, handleChange}) => (
         <Button onClick={handleClose} color="primary">
               Cancel
         </Button>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleInvest} color="primary">
               Invest
         </Button>
       </DialogActions>

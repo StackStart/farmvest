@@ -1,5 +1,7 @@
 import React from 'react';
 import UnionBank from '../../unionbank/Unionbank';
+import CircularProgress from '@material-ui/core/CircularProgress';
+const unionBank = new UnionBank();
 
 class UnionBankReceiveAuth extends React.Component {
   constructor(props) {
@@ -10,15 +12,29 @@ class UnionBankReceiveAuth extends React.Component {
     this.execute();
   }
 
-  execute() {
-    const unionBank = new UnionBank();
-    unionBank.receiveAuth();
+  async execute() {
+    await unionBank.receiveAuth();
+
+    const action = window.localStorage.getItem('action');
+    if (action === 'invest') {
+      const amount = window.localStorage.getItem('amount');
+      const recipient = window.localStorage.getItem('recipient');
+      await unionBank.transfer(recipient, amount);
+      window.localStorage.removeItem('amount');
+      window.localStorage.removeItem('recipient');
+      alert('Transfer successful');
+      window.location.href = '/farms';
+    } else {
+      alert('Login Success!');
+    }
   }
 
   render() {
     return (
       <div>
-        {this.state.message}
+        <center>
+          <CircularProgress size={50} />
+        </center>
       </div>
     );
   }

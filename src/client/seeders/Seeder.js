@@ -12,7 +12,7 @@ class Seeder {
       imgUrl: faker.random.image(),
     };
     const response = await client.service('api/owner').create(ownerData);
-    console.log(response);
+    console.log(JSON.stringify(response));
     return response;
   }
 

@@ -51,7 +51,7 @@ app.get('/unionbank/login/:scope', async (req, res) => {
   console.log('Retrieving unionbank login URI');
   const scope = req.params.scope;
   axios.defaults.baseURL = 'https://api-uat.unionbankph.com/partners/sb';
-  axios.defaults.headers.post['Content-Type'] = 'text/html';
+  axios.defaults.headers.post['content-type'] = 'text/html';
   axios.defaults.headers.post['accept'] = 'application/x-www-form-urlencoded';
   axios.defaults.headers.post['x-ibm-client-id'] = 'a2bed6de-fa69-417a-bd39-edde532ff727';
   axios.defaults.headers.post['x-ibm-client-secret'] = 'gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC';

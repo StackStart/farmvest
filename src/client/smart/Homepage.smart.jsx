@@ -79,7 +79,7 @@ class Homepage extends React.Component {
               <Grid item style={{padding: '3%'}}>
                 <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
                   <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('investor')}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
                       <AccountCircle />
                       Investor
                     </Button>
