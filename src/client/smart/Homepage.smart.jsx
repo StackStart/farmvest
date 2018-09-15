@@ -31,6 +31,12 @@ const styles = {
   paddingData: {
     padding: '8px',
     margin: '8px'
+  },
+  accountsDiv: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
   }
 };
 
@@ -41,6 +47,7 @@ class Homepage extends React.Component {
       message: 'Hello World'
     };
   }
+
 
   render() {
     return (
@@ -59,7 +66,7 @@ class Homepage extends React.Component {
               Choose your account:
             </h3>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+          <div style={styles.accountsDiv}>
             <Button variant="extendedFab" aria-label="Edit" style={styles.paddingData}>
               <AccountCircle fontSize={60} />
               Farm Owner
