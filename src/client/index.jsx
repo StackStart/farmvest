@@ -10,7 +10,7 @@ import { Provider } from 'mobx-react';
 
 import { RootStore, UIStore } from './stores';
 import Homepage from './smart/Homepage.smart';
-import AppBar from './smart/AppBarComponent';
+import AppBar from './dumb/appbar';
 
 
 // import './client';
@@ -48,7 +48,7 @@ const Index = () => (
       <div>
         <Grid container style={{flexGrow: 1}}>
           <Grid item xs={12}>
-            <AppBar />  
+            <AppBar />
           </Grid>
           <Grid item xs={6}>
             <Route exact path="/" component={Homepage} />

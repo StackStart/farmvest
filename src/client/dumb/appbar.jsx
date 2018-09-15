@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,6 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { SwipeableDrawer, List, Divider } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { inject, observer } from 'mobx-react';
 
 const styles = {
   list: {
@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-const MenuAppBar = ({ classes, handleClose, handleMenu, auth, open, anchorEl, left, toggleDrawer }) => (
+const MenuAppBar = ({ classes, uiStore: { handleClose, handleMenu, auth, open, anchorEl, left, toggleDrawer } }) => (
   <div className={classes.root}>
     <SwipeableDrawer
       open={left}
@@ -89,4 +89,4 @@ const MenuAppBar = ({ classes, handleClose, handleMenu, auth, open, anchorEl, le
   </div>
 );
 
-export default withStyles(styles)(MenuAppBar);
+export default withStyles(styles)(inject('uiStore')(observer(MenuAppBar)));

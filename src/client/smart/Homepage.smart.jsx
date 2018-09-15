@@ -1,21 +1,16 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 
 class Homepage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: 'Hello World'
-    };
-  }
-
 
   render() {
+    const { uiStore } = this.props;
     return (
       <div>
-        {this.state.message}
+        {uiStore.message}
       </div>
     );
   }
 }
 
-export default Homepage;
+export default inject('uiStore')(observer(Homepage));

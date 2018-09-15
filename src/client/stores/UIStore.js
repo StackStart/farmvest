@@ -3,24 +3,26 @@ import { observable, action } from 'mobx';
 class UIStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
-  }
-  @observable auth = true
-  @observable anchorEl = null
-  @observable left = false,
+  };
+
+  @observable auth = true;
+  @observable anchorEl = null;
+  @observable left = false;
+  @observable message = 'Hello worlasdd!'
 
 
-  handleMenu(event) {
+  handleMenu = (event) => {
     this.anchorEl = event.currentTarget;
     // this.setState({ anchorEl: event.currentTarget });
   }
 
-  handleClose() {
+  handleClose = () => {
     this.anchorEl = null;
     // this.setState({ anchorEl: null });
   }
 
-  toggleDrawer(side) {
-    this.side = !side;
+  toggleDrawer = (side) => {
+    this[side] = !this[side];
     // this.setState({
     //   [side]: !this.state[side],
     // });
