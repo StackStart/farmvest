@@ -2,6 +2,7 @@ import React from 'react';
 
 import CheckFarm from './checkFarm';
 import InvestModal from './investModal';
+import InvestmentData from './investmentData';
 import UnionBank from '../../../unionbank/Unionbank';
 
 const unionBank = new UnionBank();
@@ -23,6 +24,9 @@ const investmentView = ({ open, handleClickOpen, handleClose, handleChange, amou
         await unionBank.login('transfers');
       }}
     />
+    <br/>
+    <br/>
+    <InvestmentData />
   </React.Fragment>
 );
 
