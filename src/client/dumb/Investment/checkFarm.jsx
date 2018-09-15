@@ -57,30 +57,30 @@ const CheckFarm = ({ classes, handleClickOpen }) => (
       />
       <div className={classes.div}>
         <Typography variant="headline" component="h1" className={classes.title}>
-            Farm Name
+            Farm Vest
         </Typography>
         <Typography className={classes.pos}>
-            Farm type
+            Rice
         </Typography>
       </div>
       <CardContent>
         <Grid container spacing={16}>
           <Grid item xs={6}>
             <div className={classes.root}>
-              <h3>Duration:</h3>
+              <h3>Fund:</h3>
               <br/>
               <LinearProgress variant="determinate" value={50} />
             </div>
             <Typography component="p">
-            Duration: 105-120 days
+              <b>₱60,000 of ₱120,000 GOAL</b>
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <br/>
             <Typography component="p">
-                60% funded from 5 investor
+                50% funded from 7 investors
               <br/>
-                Expected growth: 47%
+              <h3>Expected growth: 47%</h3>
             </Typography>
           </Grid>
         </Grid>
@@ -89,8 +89,8 @@ const CheckFarm = ({ classes, handleClickOpen }) => (
         <Button size="small" color="primary" onClick={handleClickOpen}>
           Invest
         </Button>
-        <Button size="small" color="primary">
-          View Other Farm
+        <Button size="small" color="primary" onClick={() => {window.location.href = '/farms';}}>
+          View Other Farms
         </Button>
       </CardActions>
     </Card>

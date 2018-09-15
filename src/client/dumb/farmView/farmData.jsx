@@ -42,19 +42,19 @@ const FarmData = ({ classes }) => (
           <CardContent>
             <Link to="/">	
               <Typography variant="headline" component="h3">
-            		Farm Owner
+            		Juan Dela Cruz
               </Typography>
             </Link>
             <Typography className={classes.pos}>
-            Farm address
+            134 Palayan Street, Brgy. Sitio Mais, Jarow, Iloilo City
             </Typography>
             <Typography component="p">
             Other Information
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="contained" className={classes.button} >
-        			Show More
+            <Button variant="contained" className={classes.button} onClick={() => {window.location.href = '/investment';}} >
+        			See Live Listing
             </Button>
           </CardActions>
         </Grid>

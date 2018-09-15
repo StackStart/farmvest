@@ -26,6 +26,10 @@ class FarmList extends Component {
     this.setState({ farms });
   }
 
+  handleFarm() {
+    window.location.href = '/investment';
+  }
+
   render() {
     const { farms } = this.state;
     return (
@@ -36,7 +40,7 @@ class FarmList extends Component {
         <div style={styles.layout}>
           <Grid container spacing={40}>
             {
-              farms.map(farm => <FarmCard key={farm.id} farm={farm} />)
+              farms.map(farm => <FarmCard key={farm.id} farm={farm} handleFarm={this.handleFarm} />)
             }
           </Grid>
         </div>

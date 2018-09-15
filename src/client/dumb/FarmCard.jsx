@@ -18,7 +18,7 @@ const styles = {
 const FarmCard = props => {
   const { imgUrls, address, name, cropType, description } = props.farm;
   return (
-    <Grid style={{height: '40%'}} item sm={6} md={4} lg={3}>
+    <Grid style={{height: '40%', cursor: 'hand'}} item sm={6} md={4} lg={3}>
       <CardActions onClick={props.handleFarm}>
         <Card style={styles.card}>
           <CardMedia style={styles.cardMedia} image={imgUrls[0]} title="Farm image" />
