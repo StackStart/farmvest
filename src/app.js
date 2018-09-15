@@ -47,14 +47,15 @@ app.get('/unionbank', (req, res) => {
   res.send('OK');
 });
 
-app.get('/unionbank/login', async (req, res) => {
+app.get('/unionbank/login/:scope', async (req, res) => {
   console.log('Retrieving unionbank login URI');
+  const scope = req.params.scope;
   axios.defaults.baseURL = 'https://api-uat.unionbankph.com/partners/sb';
   axios.defaults.headers.post['Content-Type'] = 'text/html';
   axios.defaults.headers.post['accept'] = 'application/x-www-form-urlencoded';
   axios.defaults.headers.post['x-ibm-client-id'] = 'a2bed6de-fa69-417a-bd39-edde532ff727';
   axios.defaults.headers.post['x-ibm-client-secret'] = 'gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC';
-  const path = '/convergent/v1/oauth2/authorize?client_id=a2bed6de-fa69-417a-bd39-edde532ff727&response_type=code&scope=account_balances&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Funionbank-receive-auth';
+  const path = `/convergent/v1/oauth2/authorize?client_id=a2bed6de-fa69-417a-bd39-edde532ff727&response_type=code&scope=${scope}&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Funionbank-receive-auth`;
   const response = await axios.get(path);
   const redirectURI = response.request.res.req.agent.protocol + '//' + response.request.res.connection._host + response.request.path;
   res.json({
@@ -71,6 +72,27 @@ app.get('/unionbank/authorize/:code', (req, res) => {
 
   const command = `curl https://api-uat.unionbankph.com/partners/sb/convergent/v1/oauth2/token -H "accept: application/json" -H "content-type: application/x-www-form-urlencoded" -H "x-ibm-client-id: a2bed6de-fa69-417a-bd39-edde532ff727" -H "x-ibm-client-secret: gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC" -X POST -d "grant_type=authorization_code&client_id=a2bed6de-fa69-417a-bd39-edde532ff727&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Funionbank-receive-auth&code=${code}"`;
   
+  exec(command, (err, stdout) => {
+    if (err) {
+      console.log(err);
+      res.send();
+      return;
+    }
+
+    console.log(`${stdout}`);
+    res.json(stdout);
+  });
+});
+
+app.get('/unionbank/transfer/:to/:amount/:token', (req, res) => {
+  const to = req.params.to;
+  const amount = req.params.amount;
+  const token = req.params.token;
+
+  const command = `curl https://api-uat.unionbankph.com/partners/sb/online/v1/transfers/single -H 'accept: application/json' -H 'content-type: application/json' -H 'x-ibm-client-id: a2bed6de-fa69-417a-bd39-edde532ff727' -H 'x-ibm-client-secret: gW1uV0dH8tG5tR0jN6bA8wN3uM1iC6dI4rT0tX4oT6qJ7fD3xC' -H 'authorization: Bearer ${token}' -H 'x-partner-id: 01bbb51e-1e6c-4bd4-af9c-450957522aac' -X POST -d '{"senderTransferId": ${Math.ceil(Math.random() * 99999)},"transferRequestDate": "${new Date().toISOString().split('.')[0] + 'Z'}","accountNo":"${to}","amount": {"currency":"PHP","value":"${parseInt(amount)}"},"remarks":"Transfer remarks","particulars":"Transfer particulars","info": []}'`;
+
+  console.log(command);
+
   exec(command, (err, stdout) => {
     if (err) {
       console.log(err);
