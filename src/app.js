@@ -23,6 +23,8 @@ const channels = require('./channels');
 const axios = require('axios');
 const { exec } = require('child_process');
 
+const mongodb = require('./mongodb');
+
 const app = express(feathers());
 
 // Load app configuration
@@ -86,6 +88,8 @@ app.use('*', express.static(path.resolve('public')));
 // Set up Plugins and providers
 app.configure(express.rest());
 app.configure(socketio());
+
+app.configure(mongodb);
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);

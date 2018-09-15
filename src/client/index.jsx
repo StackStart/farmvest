@@ -20,9 +20,9 @@ import UnionBankLogin from './unionbank/UnionBankLogin.smart';
 import UnionBankReceiveAuth from './unionbank/UnionBankReceiveAuth.smart';
 import UnionBankPlayground from './unionbank/UnionBankPlayground.smart';
 import FarmView from './smart/FarmView';
+import SeederComponent from './seeders/Seeders.smart';
 
-
-// import './client';
+import './client';
 
 const rootStore = new RootStore();
 const uiStore = new UIStore(rootStore);
@@ -72,6 +72,7 @@ const Index = () => (
             <Route exact path="/login" component={Login} />
             <Route exact path="/user:id" component={UserProfile} />
             <Route exact path="/farms" component={FarmList} />
+            <Route exact path="/utilities/seeder" component={SeederComponent} />
           </Grid>
         </Grid>
       </div>
