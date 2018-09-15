@@ -9,15 +9,16 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Homepage from './smart/Homepage.smart';
 import AppBar from './smart/AppBarComponent';
+import FarmView from './smart/FarmView';
 
 // import './client';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '	#0d94a3',
-      main: '#084c61',
-      dark: '	#050f42',
+      light: '#0d94a3',
+      dark: '#084c61',
+      main: '#050f42',
       contrastText: '#ffd0aa',
     },
     secondary: {
@@ -37,8 +38,9 @@ const Index = () => (
           <Grid item xs={12}>
             <AppBar />  
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/farm" component={FarmView} />
           </Grid>
         </Grid>
       </div>
