@@ -21,6 +21,7 @@ import UnionBankReceiveAuth from './unionbank/UnionBankReceiveAuth.smart';
 import UnionBankPlayground from './unionbank/UnionBankPlayground.smart';
 import FarmView from './smart/FarmView';
 import SeederComponent from './seeders/Seeders.smart';
+import InvestmentView from './smart/InvestmentViewComponent';
 
 import './client';
 
@@ -61,7 +62,7 @@ const Index = () => (
       <div>
         <Grid container style={{flexGrow: 1, color: '#0d1744' }}>
           <Grid item xs={12}>
-            <AppBar />  
+            <AppBar />
           </Grid>
           <Grid item xs={12}>
             <Route exact path="/" component={Homepage} />
@@ -73,6 +74,7 @@ const Index = () => (
             <Route exact path="/user:id" component={UserProfile} />
             <Route exact path="/farms" component={FarmList} />
             <Route exact path="/utilities/seeder" component={SeederComponent} />
+            <Route exact path="/investment" component={InvestmentView} />
           </Grid>
         </Grid>
       </div>
