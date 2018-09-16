@@ -15,7 +15,7 @@ const styles = {
   },
   div: {
     marginLeft: '60%',
-    marginTop: '15%'
+    marginTop: '7.5%'
   },
   image2: {
     marginLeft: '60%',
@@ -38,14 +38,14 @@ const InvestmentData = ({classes}) => (
         <Grid item xs={6}>
           <div className={classes.div}>
             <Typography variant="headline" component="h1" className={classes.title}>
-            Farm Owner Name
+            Juan dela Cruz
             </Typography>
             <Typography className={classes.pos}>
             Rice Crops
               <br/>
-            Address: xxx xx.,xxx,xxx
+            Address: Brgy. Tabuc Suba, Jaro, Iloilo City
               <br/>
-            xx hectares
+            3 hectares
               <br/>
             Est nulla dolore dolore nulla sunt aliquip non laboris. Consequat tempor cillum dolor cupidatat officia.
             </Typography>
@@ -60,15 +60,15 @@ const InvestmentData = ({classes}) => (
         <Grid item xs={6}>
           <div className={classes.div2}>
             <Typography variant="headline" component="h1" className={classes.title}>
-            Farm Owner Name
+            Meet the farmer
             </Typography>
-            <Typography className={classes.pos}>
-            Rice Crops
+            <Typography style={{ marginRight: '30%'}} className={classes.pos}>
+              {/* Rice Crops
               <br/>
             Address: xxx xx.,xxx,xxx
               <br/>
-            xx hectares
-              <br/>
+            xx hectares */}
+              {/* <br/> */}
             Veniam quis ut consequat qui cupidatat Lorem sit. Dolore enim anim nisi dolore. Voluptate sunt cillum id quis dolor qui tempor ad voluptate fugiat excepteur veniam. Laboris dolor sint tempor do et.
             </Typography>
           </div>
