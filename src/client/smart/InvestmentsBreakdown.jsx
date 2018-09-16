@@ -90,7 +90,7 @@ class InvestmentsBreakdown extends Component {
       },
     ];
     const cycle = {
-      farmName: 'Farmvest',
+      farmName: 'Lacienda Farmvest',
       date: 'Apr 4, 2018 to Aug 1, 2018'
     };
     this.setState({ cycle, netProfitCostRatio, productionCost, yieldInKg, pricePerKg, netReturns, netProfit, investors, stakeHolders });
@@ -110,7 +110,7 @@ class InvestmentsBreakdown extends Component {
             <h2 style={{ textAlign: 'left' }}>Summary</h2>
             <Paper style={{ maxWidth: '750px', overflowX: 'auto', margin: '5%' }}>
               <Table>
-                <TableHead>
+                <TableHead style={{ backgroundColor: '#EEEEEE'}}>
                   <TableRow>
                     <TableCell>Production Cost</TableCell>
                     <TableCell>Yield</TableCell>
@@ -134,9 +134,9 @@ class InvestmentsBreakdown extends Component {
             </Paper>
           </Grid>
           <Grid item xs={3}>
-            <Paper style={{ maxWidth: '300px', overflowX: 'auto', margin: '2.5%' }}>
+            <Paper style={{ maxWidth: '320px', overflowX: 'auto', margin: '2.5%' }}>
               <Table>
-                <TableHead>
+                <TableHead style={{ backgroundColor: '#EEEEEE'}}>
                   <TableRow>
                     <TableCell>Stakeholders</TableCell>
                     <TableCell>Amount</TableCell>
@@ -151,6 +151,10 @@ class InvestmentsBreakdown extends Component {
                       </TableRow>
                     ))
                   }
+                  <TableRow style={{ backgroundColor: '#F8F7F7'}}>
+                    <TableCell>Total</TableCell>
+                    <TableCell>{netProfit.toFixed(2)}</TableCell>
+                  </TableRow>
                 </TableBody>
               </Table>
             </Paper>
@@ -160,7 +164,7 @@ class InvestmentsBreakdown extends Component {
           <h2>Investors Fund Distribution</h2>
           <Paper style={{ margin: '0 auto', width: '100%', maxWidth: '1150px', marginTop: '1.5%', marginBottom: '5%' }}>
             <Table>
-              <TableHead>
+              <TableHead style={{ backgroundColor: '#EEEEEE'}}>
                 <TableRow>
                   <TableCell>Investor</TableCell>
                   <TableCell>Amount Invested</TableCell>
