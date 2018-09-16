@@ -63,21 +63,20 @@ const CheckFarm = ({ classes, handleClickOpen }) => (
         </Typography>
       </div>
       <CardContent>
-        <Grid container spacing={16}>
-          <Grid item xs={6}>
+        <Grid container style={{textAlign: 'center'}} spacing={16}>
+          <Grid item xs={6} style={{marginTop: '1%'}}>
             <div className={classes.root}>
-              <h3>Fund:</h3>
               <br/>
               <LinearProgress variant="determinate" value={50} />
             </div>
-            <Typography component="p">
-              <b>₱60,000 of ₱120,000 GOAL</b>
+            <Typography component="p" style={{marginTop: '2%'}}>
+              <b>50% funded from 7 investors</b>
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <br/>
             <Typography component="p">
-                50% funded from 7 investors
+              ₱60,000 of ₱120,000 GOAL
               <br/>
               <h3>Expected growth: 47%</h3>
             </Typography>
@@ -85,12 +84,18 @@ const CheckFarm = ({ classes, handleClickOpen }) => (
         </Grid>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary" onClick={handleClickOpen}>
-          Invest
-        </Button>
-        <Button size="small" color="primary" onClick={() => {window.location.href = '/farms';}}>
-          View Other Farms
-        </Button>
+        <Grid container style={{textAlign: 'center', marginLeft: '15%', marginRight: '15%'}}>
+          <Grid xs={6}>
+            <Button color="primary" variant="contained" onClick={handleClickOpen}>
+              Invest
+            </Button>
+          </Grid>
+          <Grid xs={6}>
+            <Button color="primary" variant="contained" onClick={() => {window.location.href = '/farms';}}>
+              View Other Farms
+            </Button>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   </React.Fragment>
