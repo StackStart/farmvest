@@ -10,9 +10,10 @@ class UnionBankLogin extends React.Component {
     this.execute();
   }
 
-  execute() {
+  async execute() {
     const unionBank = new UnionBank();
-    unionBank.login('account_balances');
+    await unionBank.login('account_balances');
+    window.localStorage.setItem('action', 'balance');
   }
 
   render() {

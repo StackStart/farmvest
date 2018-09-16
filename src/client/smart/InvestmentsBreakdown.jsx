@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Typography, Grid, Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
+import Unionbank from '../../unionbank/Unionbank';
+const unionbank = new Unionbank();
 
 class InvestmentsBreakdown extends Component {
   constructor(params) {
     super(params);
     this.state = {
+      disabled: false,
       productionCost: 0,
       yieldInKg: 0,
       pricePerKg: 0,
@@ -18,6 +21,7 @@ class InvestmentsBreakdown extends Component {
         date: '',
       },
     };
+    this.distributeFunds = this.distributeFunds.bind(this);
   }
 
   componentDidMount() {
@@ -30,11 +34,12 @@ class InvestmentsBreakdown extends Component {
     const investors = [
       {
         _id: '1',
-        name: 'Rave Arevalo',
+        name: 'Noren Arevalo',
         amountInvested: 25000,
         roi: 53.55,
         netProfit: 32820,
-        gain: 7820
+        gain: 7820,
+        accountNumber: '104998822317'
       },
       {
         _id: '2',
@@ -42,7 +47,8 @@ class InvestmentsBreakdown extends Component {
         amountInvested: 5000,
         roi: 10.71,
         netProfit: 6564.16,
-        gain: 1564.16
+        gain: 1564.16,
+        accountNumber: '104269174643'
       },
       {
         _id: '3',
@@ -50,7 +56,8 @@ class InvestmentsBreakdown extends Component {
         amountInvested: 10000,
         roi: 21.42,
         netProfit: 13128.31,
-        gain: 3128.31
+        gain: 3128.31,
+        accountNumber: '107862857488'
       },
       {
         _id: '4',
@@ -58,7 +65,8 @@ class InvestmentsBreakdown extends Component {
         amountInvested: 2000,
         roi: 4.28,
         netProfit: 2625.68,
-        gain: 625.68
+        gain: 625.68,
+        accountNumber: '104256314721'
       },
       {
         _id: '5',
@@ -66,7 +74,8 @@ class InvestmentsBreakdown extends Component {
         amountInvested: 4685,
         roi: 10.04,
         netProfit: 6150.66,
-        gain: 1465.66
+        gain: 1465.66,
+        accountNumber: '107635221011'
       },
     ];
     const stakeHolders = [
@@ -74,13 +83,15 @@ class InvestmentsBreakdown extends Component {
         _id: 'a',
         name: 'Cooperative',
         pct: 2.5,
-        amount: 1703
+        amount: 1703,
+        accoutNumber: '100595519417'
       },
       {
         _id: 'b',
-        name: 'Farmer',
+        name: 'Juan Dela Crus (Farmer)',
         pct: 7.5,
-        amount: 5108
+        amount: 5108,
+        accountNumber: '103286398328'
       },
       {
         _id: 'c',
@@ -94,6 +105,19 @@ class InvestmentsBreakdown extends Component {
       date: 'Apr 4, 2018 to Aug 1, 2018'
     };
     this.setState({ cycle, netProfitCostRatio, productionCost, yieldInKg, pricePerKg, netReturns, netProfit, investors, stakeHolders });
+  }
+
+  async distributeFunds() {
+    const promises = [];
+    for (let index = 0; index < this.state.investors.length; index++) {
+      const investor = this.state.investors[index];
+      promises.push(unionbank.transfer(investor.accountNumber, investor.netProfit));
+    }
+    const result = await Promise.all(promises);
+    alert('FUNDS HAVE BEEN SUCCESSFULLY DISTRIBUTED!');
+    this.setState({
+      disabled: true
+    });
   }
 
   render() {
@@ -125,7 +149,7 @@ class InvestmentsBreakdown extends Component {
                     <TableCell>{productionCost.toFixed(2)}</TableCell>
                     <TableCell>{yieldInKg} kg</TableCell>
                     <TableCell>{pricePerKg.toFixed(2)}</TableCell>
-                    <TableCell>{netProfit.toFixed(2)}</TableCell>
+                    <TableCell><b>{netProfit.toFixed(2)}</b></TableCell>
                     <TableCell>{netReturns.toFixed(2)}</TableCell>
                     <TableCell>{netProfitCostRatio}</TableCell>
                   </TableRow>
@@ -180,7 +204,7 @@ class InvestmentsBreakdown extends Component {
                       <TableCell>{investor.name}</TableCell>
                       <TableCell>{investor.amountInvested}</TableCell>
                       <TableCell>{investor.roi} %</TableCell>
-                      <TableCell>{investor.netProfit.toFixed(2)}</TableCell>
+                      <TableCell><b>{investor.netProfit.toFixed(2)}</b></TableCell>
                       <TableCell>{investor.gain.toFixed(2)}</TableCell>
                     </TableRow>
                   ))
@@ -190,7 +214,9 @@ class InvestmentsBreakdown extends Component {
           </Paper>
         </Grid>
         <Grid style={{ textAlign: 'center', marginBottom: '5%' }}>
-          <Button variant="contained" color="primary" style={{ color: 'white' }}>Distribute Funds</Button>
+          <Button disabled={this.state.disabled} variant="contained" color="primary" style={{ color: 'white' }} onClick={this.distributeFunds}>
+            Distribute Funds
+          </Button>
         </Grid>
       </div>
     );

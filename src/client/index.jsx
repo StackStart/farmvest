@@ -26,6 +26,7 @@ import InvestmentView from './smart/InvestmentViewComponent';
 
 import './client';
 import FarmListCooperative from './smart/FarmListCooperative';
+import BalanceView from './smart/ShowBalance.smart';
 
 const rootStore = new RootStore();
 const uiStore = new UIStore(rootStore);
@@ -73,12 +74,13 @@ const Index = () => (
             <Route exact path="/unionbank-playground" component={UnionBankPlayground} />
             <Route exact path="/farm" component={FarmView} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/user:id" component={UserProfile} />
+            <Route exact path="/user" component={UserProfile} />
             <Route exact path="/farms" component={FarmList} />
             <Route exact path="/investments/results" component={InvestmentsBreakdown} />
             <Route exact path="/cooperative/farms" component={FarmListCooperative} />
             <Route exact path="/utilities/seeder" component={SeederComponent} />
             <Route exact path="/investment" component={InvestmentView} />
+            <Route exact path="/user/balance" component={BalanceView} />
           </Grid>
         </Grid>
       </div>

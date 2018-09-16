@@ -20,7 +20,7 @@ const investmentView = ({ open, handleClickOpen, handleClose, handleChange, amou
       handleInvest={async () => {
         window.localStorage.setItem('action', 'invest');
         window.localStorage.setItem('amount', amount);
-        window.localStorage.setItem('recipient', '108265487572');
+        window.localStorage.setItem('recipient', '100595519417'); // Cooperative Account
         await unionBank.login('transfers');
       }}
     />

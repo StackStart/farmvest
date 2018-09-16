@@ -65,7 +65,7 @@ const InvestModal = ({ classes, handleClose, open, amount, handleChange, handleI
             id="adornment-amount"
             name="amount"
             onChange={handleChange}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            startAdornment={<InputAdornment position="start">₱</InputAdornment>}
           />
         </FormControl>
         <DialogContentText>

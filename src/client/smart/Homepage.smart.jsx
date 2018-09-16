@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountBalanceWallet from '@material-ui/icons/AccountBalanceWallet';
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
@@ -13,8 +13,8 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    flexDirection: 'column'
-
+    flexDirection: 'column',
+    marginTop: '10%'
   },
   outerLayer: {
     display: 'flex'
@@ -69,31 +69,33 @@ class Homepage extends React.Component {
           <Grid item xs={12}>
             <Grid container justify='center' style={{ alignItems: 'center', justifyContent: 'center', paddingBottom: '8%' }} direction='column'>
               <Grid item>
-                <h1>Welcome to Farmvest</h1>
+                <img src='/images/logo.png' alt='Logo sample' />
               </Grid>
               <Grid item>
                 <h5>
-                  your farm investment
+                  FarmVest: Innovation for a Cause.
                 </h5>
               </Grid>
               <Grid item style={{padding: '3%'}}>
                 <Grid container direction='row' justify='center' style={{ alignItems: 'center' }}>
-                  <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
-                      <AccountCircle />
-                      Investor
-                    </Button>
-                  </Grid>
-                  <Grid item lg={3} xs={4}>
-                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('login')} >
-                      <AccountCircle />
-                      Farm Owner
-                    </Button>
-                  </Grid>
-                  <Grid lg={6}item>
+                  <Grid md={4} sm={12} item>
                     <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('cooperative/farms')}>
                       <AccountCircle />
                       Cooperation Guild
+                    </Button>
+                  </Grid>
+                  <Grid item sm={12} md={4}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={async () => {
+                      window.location.href = '/unionbank-login';
+                    }} >
+                      <AccountBalanceWallet />
+                      Check Account
+                    </Button>
+                  </Grid>
+                  <Grid item md={4} sm={12}>
+                    <Button variant="extendedFab" style={styles.paddingData} onClick={() => this.navigateTo('farms')}>
+                      <AccountCircle />
+                      Investor
                     </Button>
                   </Grid>
                 </Grid>
