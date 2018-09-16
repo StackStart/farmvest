@@ -113,8 +113,14 @@ class InvestmentsBreakdown extends Component {
       const investor = this.state.investors[index];
       promises.push(unionbank.transfer(investor.accountNumber, investor.netProfit));
     }
+    const landOwner = this.state.stakeHolders[1];
+    promises.push(unionbank.transfer(landOwner.accountNumber, landOwner.amount));
+
     const result = await Promise.all(promises);
+    console.log(result);
+
     alert('FUNDS HAVE BEEN SUCCESSFULLY DISTRIBUTED!');
+    
     this.setState({
       disabled: true
     });
